@@ -13,7 +13,7 @@ import styles from "../styles/Home.module.css";
 const Home: NextPage = () => {
   const address = useAddress();
   const connectWithMetamask = useMetamask();
-  const edition = useEdition("0x62C84CC051544c43d05a5Ff0E8Da596fBdB15032");
+  const edition = useEdition("0xf12538a74211fC85D92E7236CF1525A52EFB653B");
   const [nftData, setNftData] = useState<EditionMetadata["metadata"] | null>(
     null
   );
@@ -83,8 +83,8 @@ const Home: NextPage = () => {
             <Image
               src={nftData?.image}
               alt={nftData?.name}
-              width="280"
-              height="210"
+              width="560"
+              height="420"
               objectFit="contain"
             />
           )}
@@ -106,15 +106,15 @@ const Home: NextPage = () => {
           <button
             className={styles.btn}
             disabled={
-              mintLoading || network[0]?.data?.chain?.id !== ChainId.Mumbai
+              mintLoading || network[0]?.data?.chain?.id !== ChainId.Mainnet
             }
             onClick={() => mintWithSignature()}
           >
-            {network[0]?.data?.chain?.id === ChainId.Mumbai
+            {network[0]?.data?.chain?.id === ChainId.Mainnet
               ? mintLoading
                 ? "loading..."
                 : "Mint"
-              : "Switch to Mumbai"}
+              : "Switch to Mainnet"}
           </button>
         </div>
       ) : (
